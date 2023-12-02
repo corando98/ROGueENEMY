@@ -54,7 +54,7 @@ int logic_create(logic_t *const logic) {
     }
 
     const int virt_ds5_thread_creation = pthread_create(&logic->virt_ds5_thread, NULL, virt_ds5_thread_func, (void*)(logic));
-	if (virt_ds4_thread_creation != 0) {
+	if (virt_ds5_thread_creation != 0) {
 		fprintf(stderr, "Error creating virtual DualSense thread: %d.\n", virt_ds5_thread_creation);
 	} else {
         printf("Creation of virtual DualShock4 succeeded: using it as the defaut output.\n");
