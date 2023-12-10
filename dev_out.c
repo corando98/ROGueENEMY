@@ -20,6 +20,22 @@ static void handle_incoming_message_gamepad_set(
     gamepad_status_t *const inout_gamepad
 ) {
     switch (msg_payload->element) {
+        case GAMEPAD_TPAD_Y: {
+            inout_gamepad->touchpad_y = msg_payload->status.touchpad_pos;
+            break;
+        }
+        case GAMEPAD_TPAD_X: {
+            inout_gamepad->touchpad_x = msg_payload->status.touchpad_pos;
+            break;
+        }
+        case GAMEPAD_BTN_QAM: {
+            inout_gamepad->flags &= ~GAMEPAD_STATUS_FLAGS_OPEN_STEAM_QAM;
+            break;
+        }
+        case GAMEPAD_BTN_CENTER: {
+            inout_gamepad->center = msg_payload->status.btn;
+            break;
+        }
         case GAMEPAD_BTN_CROSS: {
             inout_gamepad->cross = msg_payload->status.btn;
             break;
@@ -132,6 +148,7 @@ static void handle_incoming_message_gamepad_set(
 
             break;
         }
+        
         default: {
             fprintf(stderr, "Unknown gamepad element: %d\n", msg_payload->element);
             break;

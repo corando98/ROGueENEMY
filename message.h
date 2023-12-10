@@ -24,6 +24,10 @@ typedef enum in_message_gamepad_btn {
     GAMEPAD_BTN_L5,
     GAMEPAD_BTN_R5,
     GAMEPAD_BTN_TOUCHPAD,
+    GAMEPAD_BTN_CENTER,
+    GAMEPAD_BTN_QAM,
+    GAMEPAD_TPAD_X,
+    GAMEPAD_TPAD_Y,
 
     GAMEPAD_LEFT_JOYSTICK_X,
     GAMEPAD_LEFT_JOYSTICK_Y,
@@ -39,6 +43,7 @@ typedef struct in_message_gamepad_set_element {
     union {
         uint8_t btn;
         int32_t joystick_pos;
+        uint16_t touchpad_pos;
         int8_t dpad; // -1 | 0 | +1
     } status;
 }  in_message_gamepad_set_element_t;
