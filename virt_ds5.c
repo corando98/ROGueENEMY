@@ -530,10 +530,6 @@ static int send_data(int fd, logic_t *const logic) {
         printf("Buf[35]: 0x%X\n", buf[35]);
         printf("Buf[36]: 0x%X\n", buf[36]);
     }
-     // Debug: Print packed values
-        printf("Buf[34]: 0x%X\n", buf[34]);
-        printf("Buf[35]: 0x%X\n", buf[35]);
-        printf("Buf[36]: 0x%X\n", buf[36]);
     
 
  
