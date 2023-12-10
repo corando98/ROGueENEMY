@@ -406,6 +406,7 @@ void* dev_in_thread_func(void *ptr) {
                 //fill_message_from_iio(&devices[i].dev.iio, out_msg);
             } else if (devices[i].type == DEV_IN_TYPE_HIDRAW) {
                 const int hidraw_op_res = dev_in_data->input_dev_decl->dev[i]->map.hidraw_input_map_fn(dev_hidraw_get_fd(devices[i].dev.hidraw.hidrawdev), dev_in_data->in_message_pipe_fd, dev_in_data->input_dev_decl->dev[i]->user_data);
+                printf("This is a test\n");
                 if (hidraw_op_res != 0) {
                     fprintf(stderr, "Error in performing operations for device %zd: %d -- Will reconnect to the device\n", i, hidraw_op_res);
                     hidraw_close_device(&devices[i].dev.hidraw);
